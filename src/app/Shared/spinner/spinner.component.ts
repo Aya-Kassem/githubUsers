@@ -10,10 +10,6 @@ import { Component } from '@angular/core';
 })
 export class SpinnerComponent {
   userExist!: boolean;
-  // gameInfo$ : Observable<Game> = this._Store.select('GameInfo');
-  // private _Store: Store<{ 'GameInfo': Game }>
   constructor() { }
-  ngOnInit() {
-      console.log('Spinner init'); 
-  }
+
 }
