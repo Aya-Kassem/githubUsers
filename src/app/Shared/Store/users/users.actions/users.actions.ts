@@ -11,3 +11,13 @@ export const setUsers = createAction(
 export const getDefaultUsers = createAction(
     '[Main Page] No Users'
 )
+
+export const onSearchUser = createAction(
+  '[Main Page] Search User',
+  props<{ name: string }>()
+)
+
+export const onPagenationChange = createAction(
+  '[Main Page] Page Selected',
+  props<{ page: number, count: number }>()
+)

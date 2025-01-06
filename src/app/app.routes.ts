@@ -16,8 +16,8 @@ export const routes: Routes = [
     {
         path: 'userProfile/:name',
         component: UserDetailsComponent,
-        // resolve: {
-        //     userDetails: userDetailsResolver
-        // }
+        resolve: {
+            userDetails: userDetailsResolver
+        }
     }
 ];

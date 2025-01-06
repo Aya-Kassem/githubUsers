@@ -7,7 +7,7 @@ import {
 } from '../../../Shared/Store/sort/sort.action';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { user } from '../users/interface/user-interface';
-import { setUsers } from '../../../Shared/Store/users/users.actions/users.actions';
+import { onSearchUser, getUsers } from '../../../Shared/Store/users/users.actions/users.actions';
 
 @Component({
   selector: 'app-search-user',
@@ -33,8 +33,8 @@ export class SearchUserComponent {
   }
 
   getUser(name: string) {
-    console.log(name);
-    
+    this.appStore.dispatch(onSearchUser({name: name}));
+    this.appStore.dispatch(getUsers());
   }
 
   sortUsers() {

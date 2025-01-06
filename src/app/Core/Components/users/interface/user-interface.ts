@@ -24,3 +24,9 @@ export interface userDetails {
   followers: number;
   following: number;
 }
+
+export interface userRequest {
+  query: string,
+  pageNumber: number,
+  items: number
+}

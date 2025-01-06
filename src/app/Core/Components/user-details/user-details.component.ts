@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
 })
 export class UserDetailsComponent {
-  //userDetails = input.required<userDetails>();
+  userDetails = input.required<userDetails>();
 
   info: userDetails = {
     login: 'Aya-Kassem',
