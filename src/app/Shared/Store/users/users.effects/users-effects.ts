@@ -1,4 +1,4 @@
-import { Inject, Injectable, PLATFORM_ID, inject } from '@angular/core';
+import {  Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs';
@@ -22,7 +22,7 @@ export class UsersEffects {
       this.actions$.pipe(
         ofType(getUsers),
         tap(() => {
-          this.githubService.getAllUsers().subscribe((result) => {
+          this.githubService.getAllUsers('A', 1, 30).subscribe((result) => {
             result.length
               ? this.appStore.dispatch(setUsers({ users: result }))
               : this.appStore.dispatch(getDefaultUsers());

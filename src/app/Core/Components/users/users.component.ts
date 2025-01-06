@@ -5,6 +5,7 @@ import { getUsers } from '../../../Shared/Store/users/users.actions/users.action
 import { SearchUserComponent } from '../search-user/search-user.component';
 import { UserCardComponent } from '../../../Shared/user-card/user-card.component';
 import { CommonModule } from '@angular/common';
+import { sortUsersAscending } from '../../../Shared/Store/sort/sort.action';
 
 @Component({
   selector: 'app-users',
@@ -15,343 +16,96 @@ import { CommonModule } from '@angular/common';
 })
 export class UsersComponent {
   private appStore = inject(Store<{ users: user[] }>);
-  //  allUsers: user[]=[];
+   users: user[]=[];
   ngOnInit() {
     // this.appStore.dispatch(getUsers());
+    // this.appStore.dispatch(sortUsersAscending());
     // this.appStore.select('users').subscribe((d) => {
     //   console.log(d);
+      
+    //   this.users = d;
     // })
+
   }
 
   allUsers: userDetails[] = [
-    // {
-    //   login: 'mojombo',
-    //   id: 1,
-    //   node_id: 'MDQ6VXNlcjE=',
-    //   avatar_url: 'https://avatars.githubusercontent.com/u/1?v=4',
-    //   gravatar_id: '',
-    //   url: 'https://api.github.com/users/mojombo',
-    //   html_url: 'https://github.com/mojombo',
-    //   followers_url: 'https://api.github.com/users/mojombo/followers',
-    //   following_url:
-    //     'https://api.github.com/users/mojombo/following{/other_user}',
-    //   gists_url: 'https://api.github.com/users/mojombo/gists{/gist_id}',
-    //   starred_url:
-    //     'https://api.github.com/users/mojombo/starred{/owner}{/repo}',
-    //   subscriptions_url: 'https://api.github.com/users/mojombo/subscriptions',
-    //   organizations_url: 'https://api.github.com/users/mojombo/orgs',
-    //   repos_url: 'https://api.github.com/users/mojombo/repos',
-    //   events_url: 'https://api.github.com/users/mojombo/events{/privacy}',
-    //   received_events_url:
-    //     'https://api.github.com/users/mojombo/received_events',
-    //   type: 'User',
-    //   user_view_type: 'public',
-    //   site_admin: false,
-    // },
-    // {
-    //   login: 'defunkt',
-    //   id: 2,
-    //   node_id: 'MDQ6VXNlcjI=',
-    //   avatar_url: 'https://avatars.githubusercontent.com/u/2?v=4',
-    //   gravatar_id: '',
-    //   url: 'https://api.github.com/users/defunkt',
-    //   html_url: 'https://github.com/defunkt',
-    //   followers_url: 'https://api.github.com/users/defunkt/followers',
-    //   following_url:
-    //     'https://api.github.com/users/defunkt/following{/other_user}',
-    //   gists_url: 'https://api.github.com/users/defunkt/gists{/gist_id}',
-    //   starred_url:
-    //     'https://api.github.com/users/defunkt/starred{/owner}{/repo}',
-    //   subscriptions_url: 'https://api.github.com/users/defunkt/subscriptions',
-    //   organizations_url: 'https://api.github.com/users/defunkt/orgs',
-    //   repos_url: 'https://api.github.com/users/defunkt/repos',
-    //   events_url: 'https://api.github.com/users/defunkt/events{/privacy}',
-    //   received_events_url:
-    //     'https://api.github.com/users/defunkt/received_events',
-    //   type: 'User',
-    //   user_view_type: 'public',
-    //   site_admin: false,
-    // },
-    // {
-    //   login: 'pjhyett',
-    //   id: 3,
-    //   node_id: 'MDQ6VXNlcjM=',
-    //   avatar_url: 'https://avatars.githubusercontent.com/u/3?v=4',
-    //   gravatar_id: '',
-    //   url: 'https://api.github.com/users/pjhyett',
-    //   html_url: 'https://github.com/pjhyett',
-    //   followers_url: 'https://api.github.com/users/pjhyett/followers',
-    //   following_url:
-    //     'https://api.github.com/users/pjhyett/following{/other_user}',
-    //   gists_url: 'https://api.github.com/users/pjhyett/gists{/gist_id}',
-    //   starred_url:
-    //     'https://api.github.com/users/pjhyett/starred{/owner}{/repo}',
-    //   subscriptions_url: 'https://api.github.com/users/pjhyett/subscriptions',
-    //   organizations_url: 'https://api.github.com/users/pjhyett/orgs',
-    //   repos_url: 'https://api.github.com/users/pjhyett/repos',
-    //   events_url: 'https://api.github.com/users/pjhyett/events{/privacy}',
-    //   received_events_url:
-    //     'https://api.github.com/users/pjhyett/received_events',
-    //   type: 'User',
-    //   user_view_type: 'public',
-    //   site_admin: false,
-    // },
-    // {
-    //   login: 'Aya-Kassem',
-    //   id: 90005145,
-    //   node_id: 'MDQ6VXNlcjkwMDA1MTQ1',
-    //   avatar_url: 'https://avatars.githubusercontent.com/u/90005145?v=4',
-    //   gravatar_id: '',
-    //   url: 'https://api.github.com/users/Aya-Kassem',
-    //   html_url: 'https://github.com/Aya-Kassem',
-    //   followers_url: 'https://api.github.com/users/Aya-Kassem/followers',
-    //   following_url:
-    //     'https://api.github.com/users/Aya-Kassem/following{/other_user}',
-    //   gists_url: 'https://api.github.com/users/Aya-Kassem/gists{/gist_id}',
-    //   starred_url:
-    //     'https://api.github.com/users/Aya-Kassem/starred{/owner}{/repo}',
-    //   subscriptions_url:
-    //     'https://api.github.com/users/Aya-Kassem/subscriptions',
-    //   organizations_url: 'https://api.github.com/users/Aya-Kassem/orgs',
-    //   repos_url: 'https://api.github.com/users/Aya-Kassem/repos',
-    //   events_url: 'https://api.github.com/users/Aya-Kassem/events{/privacy}',
-    //   received_events_url:
-    //     'https://api.github.com/users/Aya-Kassem/received_events',
-    //   type: 'User',
-    //   user_view_type: 'public',
-    //   site_admin: false
-    // },
-
     {
       login: 'Aya-Kassem',
       id: 90005145,
-      node_id: 'MDQ6VXNlcjkwMDA1MTQ1',
       avatar_url: 'https://avatars.githubusercontent.com/u/90005145?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/Aya-Kassem',
       html_url: 'https://github.com/Aya-Kassem',
-      followers_url: 'https://api.github.com/users/Aya-Kassem/followers',
-      following_url:
-        'https://api.github.com/users/Aya-Kassem/following{/other_user}',
-      gists_url: 'https://api.github.com/users/Aya-Kassem/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/Aya-Kassem/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/Aya-Kassem/subscriptions',
-      organizations_url: 'https://api.github.com/users/Aya-Kassem/orgs',
-      repos_url: 'https://api.github.com/users/Aya-Kassem/repos',
-      events_url: 'https://api.github.com/users/Aya-Kassem/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/Aya-Kassem/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'Aya Kassem',
       company: 'T-Tech',
-      blog: '',
       location: 'Giza',
-      email: null,
-      hireable: null,
       bio: null,
-      twitter_username: null,
       public_repos: 25,
-      public_gists: 0,
       followers: 5,
-      following: 7,
-      created_at: '2021-09-02T19:56:24Z',
-      updated_at: '2025-01-05T10:10:13Z',
+      following: 7
     },
     {
       login: 'bitemyapp',
       id: 320177,
-      node_id: 'MDQ6VXNlcjMyMDE3Nw==',
       avatar_url: 'https://avatars.githubusercontent.com/u/320177?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/bitemyapp',
       html_url: 'https://github.com/bitemyapp',
-      followers_url: 'https://api.github.com/users/bitemyapp/followers',
-      following_url:
-        'https://api.github.com/users/bitemyapp/following{/other_user}',
-      gists_url: 'https://api.github.com/users/bitemyapp/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/bitemyapp/starred{/owner}{/repo}',
-      subscriptions_url: 'https://api.github.com/users/bitemyapp/subscriptions',
-      organizations_url: 'https://api.github.com/users/bitemyapp/orgs',
-      repos_url: 'https://api.github.com/users/bitemyapp/repos',
-      events_url: 'https://api.github.com/users/bitemyapp/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/bitemyapp/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'Chris A.',
       company: null,
-      blog: '',
       location: null,
-      email: null,
-      hireable: true,
       bio: '☦️',
-      twitter_username: null,
       public_repos: 227,
-      public_gists: 119,
       followers: 1036,
-      following: 830,
-      created_at: '2010-07-01T15:07:59Z',
-      updated_at: '2024-12-17T00:37:05Z',
+      following: 830
     },
     {
       login: 'Super45coder',
       id: 80135238,
-      node_id: 'MDQ6VXNlcjgwMTM1MjM4',
       avatar_url: 'https://avatars.githubusercontent.com/u/80135238?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/Super45coder',
       html_url: 'https://github.com/Super45coder',
-      followers_url: 'https://api.github.com/users/Super45coder/followers',
-      following_url:
-        'https://api.github.com/users/Super45coder/following{/other_user}',
-      gists_url: 'https://api.github.com/users/Super45coder/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/Super45coder/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/Super45coder/subscriptions',
-      organizations_url: 'https://api.github.com/users/Super45coder/orgs',
-      repos_url: 'https://api.github.com/users/Super45coder/repos',
-      events_url: 'https://api.github.com/users/Super45coder/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/Super45coder/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'a',
       company: null,
-      blog: '',
       location: 'United States',
-      email: null,
-      hireable: null,
       bio: null,
-      twitter_username: null,
       public_repos: 44,
-      public_gists: 0,
       followers: 415,
-      following: 1717,
-      created_at: '2021-03-06T00:18:22Z',
-      updated_at: '2023-10-26T21:27:39Z',
+      following: 1717
     },
     {
       login: 'alsayadi',
       id: 1955591,
-      node_id: 'MDQ6VXNlcjE5NTU1OTE=',
       avatar_url: 'https://avatars.githubusercontent.com/u/1955591?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/alsayadi',
       html_url: 'https://github.com/alsayadi',
-      followers_url: 'https://api.github.com/users/alsayadi/followers',
-      following_url:
-        'https://api.github.com/users/alsayadi/following{/other_user}',
-      gists_url: 'https://api.github.com/users/alsayadi/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/alsayadi/starred{/owner}{/repo}',
-      subscriptions_url: 'https://api.github.com/users/alsayadi/subscriptions',
-      organizations_url: 'https://api.github.com/users/alsayadi/orgs',
-      repos_url: 'https://api.github.com/users/alsayadi/repos',
-      events_url: 'https://api.github.com/users/alsayadi/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/alsayadi/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'A.A',
       company: null,
-      blog: '',
       location: null,
-      email: null,
-      hireable: null,
       bio: null,
-      twitter_username: 'alsayadii',
       public_repos: 40,
-      public_gists: 0,
       followers: 93,
-      following: 15,
-      created_at: '2012-07-11T09:37:41Z',
-      updated_at: '2024-11-23T17:45:22Z',
+      following: 15
     },
     {
       login: 'lesnitsky',
       id: 6261302,
-      node_id: 'MDQ6VXNlcjYyNjEzMDI=',
       avatar_url: 'https://avatars.githubusercontent.com/u/6261302?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/lesnitsky',
       html_url: 'https://github.com/lesnitsky',
-      followers_url: 'https://api.github.com/users/lesnitsky/followers',
-      following_url:
-        'https://api.github.com/users/lesnitsky/following{/other_user}',
-      gists_url: 'https://api.github.com/users/lesnitsky/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/lesnitsky/starred{/owner}{/repo}',
-      subscriptions_url: 'https://api.github.com/users/lesnitsky/subscriptions',
-      organizations_url: 'https://api.github.com/users/lesnitsky/orgs',
-      repos_url: 'https://api.github.com/users/lesnitsky/repos',
-      events_url: 'https://api.github.com/users/lesnitsky/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/lesnitsky/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'Andrei Lesnitsky',
       company: null,
-      blog: '',
       location: 'Poland, Gdańsk',
-      email: null,
-      hireable: true,
       bio: null,
-      twitter_username: 'lesnitsky_dev',
       public_repos: 160,
-      public_gists: 19,
       followers: 440,
-      following: 114,
-      created_at: '2013-12-25T22:57:54Z',
-      updated_at: '2025-01-05T20:05:53Z',
+      following: 114
     },
     {
       login: 'NotHarshhaa',
       id: 112948305,
-      node_id: 'U_kgDOBrt0UQ',
       avatar_url: 'https://avatars.githubusercontent.com/u/112948305?v=4',
-      gravatar_id: '',
-      url: 'https://api.github.com/users/NotHarshhaa',
       html_url: 'https://github.com/NotHarshhaa',
-      followers_url: 'https://api.github.com/users/NotHarshhaa/followers',
-      following_url:
-        'https://api.github.com/users/NotHarshhaa/following{/other_user}',
-      gists_url: 'https://api.github.com/users/NotHarshhaa/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/NotHarshhaa/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/NotHarshhaa/subscriptions',
-      organizations_url: 'https://api.github.com/users/NotHarshhaa/orgs',
-      repos_url: 'https://api.github.com/users/NotHarshhaa/repos',
-      events_url: 'https://api.github.com/users/NotHarshhaa/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/NotHarshhaa/received_events',
-      type: 'User',
-      user_view_type: 'public',
-      site_admin: false,
       name: 'H A R S H H A A',
       company: 'ProDevOpsGuy Tech Community',
-      blog: 'https://blog.prodevopsguy.xyz',
       location: 'Hyderabad',
-      email: null,
-      hireable: null,
       bio: '𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻𝘁 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 𝗮𝗻𝗱 𝗮𝘂𝘁𝗼𝗺𝗮𝘁𝗶𝗼𝗻 𝗲𝗻𝘁𝗵𝘂𝘀𝗶𝗮𝘀𝘁 | 𝗖𝗹𝗼𝘂𝗱 𝗮𝗻𝗱 𝗗𝗲𝘃𝗼𝗽𝘀 𝗲𝗻𝗴𝗶𝗻𝗲𝗲𝗿',
-      twitter_username: null,
       public_repos: 34,
-      public_gists: 8,
       followers: 1062,
       following: 0,
-      created_at: '2022-09-06T11:44:29Z',
-      updated_at: '2025-01-03T11:27:33Z',
     },
   ];
 }

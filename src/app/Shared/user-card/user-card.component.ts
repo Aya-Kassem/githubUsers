@@ -9,13 +9,9 @@ import { RouterModule, Router } from '@angular/router';
   styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
-  userName = input<string>();
-  userProgile = input<string>();
-  // userLocation = input<string>();
+  userProfile = input<string>();
   userImage = input<string | null>();
   name =  input.required<string>();
-  userFollowers = input<number>();
-  userFollowing = input<number>();
   defaultUserImg:string = 'default-profile.png';
   private router = inject(Router);
 
@@ -25,6 +21,6 @@ export class UserCardComponent {
   
   navigateToUserProfile(clickEvent: Event){
     clickEvent.stopPropagation();
-    window.open(this.userProgile());
+    window.open(this.userProfile());
   }
 }

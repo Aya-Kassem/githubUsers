@@ -8,17 +8,13 @@
 
   <app-search-user />
 
-  
   <div class="row users my-4">
     @for(user of allUsers; track user.id){
     <div class="col-12 col-sm-4 mb-3 pe-sm-0">
       <app-user-card
-        [userName]="user.name!"
-        [userProgile]="user.html_url"
+        [userProfile]="user.html_url"
         [userImage]="user.avatar_url"
         [name]="user.login"
-        [userFollowers]="user.followers"
-        [userFollowing]="user.following"
       />
     </div>
     }@empty {

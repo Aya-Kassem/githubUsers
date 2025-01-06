@@ -2,31 +2,18 @@ import { user } from "../../../../Core/Components/users/interface/user-interface
 import { createDefaultObject } from "../../../Helpers/defaultObj";
 import { createReducer, on } from '@ngrx/store';
 import { getDefaultUsers, getUsers, setUsers } from '../users.actions/users.actions';
+import { sortUsersAscending, sortUsersDescending } from "../../sort/sort.action";
 
 export const usersState = [createDefaultObject<user>({
     login: '',
-    id: 0,
-    node_id: '',
     avatar_url: '',
-    gravatar_id: '',
-    url: '',
-    html_url: '',
-    followers_url: '',
-    following_url: '',
-    gists_url: '',
-    starred_url: '',
-    subscriptions_url: '',
-    organizations_url: '',
-    repos_url: '',
-    events_url: '',
-    received_events_url: '',
-    type: '',
-    user_view_type: '',
-    site_admin: false
+    html_url: ''
 })];
 
 export const usersReducers = createReducer(
     usersState,
     on(setUsers, (state, { users }) => users),
-    on(getDefaultUsers, (state) => state)
+    on(getDefaultUsers, (state) => state),
+    on(sortUsersAscending, (state) => state.slice().sort((a: user, b: user) => a.login.localeCompare(b.login))),
+    on(sortUsersDescending, (state) => state.slice().sort((a: user, b: user) => b.login.localeCompare(a.login)))
 );
