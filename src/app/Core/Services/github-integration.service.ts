@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { catchError, Observable } from "rxjs";
-import { user } from "../Components/users/interface/user-interface";
+import { user, userDetails } from "../Components/users/interface/user-interface";
 
 @Injectable({
     providedIn:'root'
@@ -13,5 +13,9 @@ export class GithubIntegrationService {
 
     getAllUsers(): Observable<user[]>{
         return this.httpClient.get<user[]>(`${this.mainUrl}users`);
+    }
+
+    getUserByName(name: string): Observable<userDetails>{
+        return this.httpClient.get<userDetails>(`${this.mainUrl}users/${name}`)
     }
 }
