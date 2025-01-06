@@ -1,15 +1,12 @@
-<!-- <div class="container border mx-auto px-4 mb-3"> -->
-  <div class="row userInput d-flex justify-content-center">
-    <div class="col-8 gap-1 gap-sm-3 d-flex justify-content-center align-items-center flex-column flex-sm-row">
-      <label for="user">Find User On Github: </label>
-      <input
-        name="user"
-        #githubUser
-        type="text"
-        class="flex-grow-1 px-3 py-1"
-        placeholder="User Name or Email"
-        (input)="getUser(githubUser.value)"
-      />
-    </div>
+<div class="row userInput d-flex justify-content-center">
+  <div class="col-8 d-flex justify-content-center align-items-center">
+    <input
+      name="user"
+      #githubUser
+      type="text"
+      class="flex-grow-1 px-3 py-1"
+      placeholder="Find User By Name or Email"
+      (input)="getUser(githubUser.value)"
+    />
   </div>
-<!-- </div> -->
+</div>
