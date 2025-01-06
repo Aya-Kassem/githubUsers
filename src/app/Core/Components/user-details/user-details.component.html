@@ -1,0 +1,82 @@
+<div
+  class="row d-flex justify-content-center align-items-center py-5 m-0 mx-2 mx-sm-0"
+>
+  <div class="col-sm-6 userIfo py-3">
+    <a class="d-flex align-items-center backBtn" routerLink="/githubUsers">
+      <i class="bi bi-arrow-left-short"></i>
+      <span>back</span>
+    </a>
+    <div
+      class="header d-flex justify-content-start align-items-center gap-3 flex-column flex-sm-row"
+    >
+      <div class="d-flex flex-column">
+        <img [src]="info.avatar_url" alt="User Image" />
+        @if(info.bio){
+        <div class="d-flex align-items-center gap-2 mt-2">
+          <i class="bi bi-person-vcard"></i>
+          <span>{{ info.bio }}</span>
+        </div>
+        }
+      </div>
+      <div class="info d-flex flex-column">
+        <div class="d-flex align-items-center mb-3 gap-2">
+          <i class="bi bi-person"></i>
+          <span class="name">{{ info.name }}</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-github"></i>
+          <a [href]="info.html_url" target="_blank" class="link"
+            >Visit Profile</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="row content my-4 mx-0 d-flex flex-column flex-sm-row align-items-center justify-content-start"
+    >
+      <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
+        <i class="bi bi-buildings"></i>
+        <span>Company:&nbsp;</span>
+        <span>{{ info.company }}</span>
+      </div>
+
+      <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
+        <i class="bi bi-geo-alt"></i>
+        <span>Location:&nbsp;</span>
+        <span class="name">{{ info.location }}</span>
+      </div>
+
+      <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
+        <svg
+          aria-hidden="true"
+          height="16"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          data-view-component="true"
+          class="octicon octicon-repo UnderlineNav-octicon"
+        >
+          <path
+            fill="#17A26A"
+            d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"
+          ></path>
+        </svg>
+        <span>Repositories Number:&nbsp;</span>
+        <span class="name">{{ info.public_repos }}</span>
+      </div>
+
+      <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
+        <i class="bi bi-people"></i>
+        <span>Follwoing:&nbsp;</span>
+        <span class="name">{{ info.following }}</span>
+      </div>
+
+      <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
+        <i class="bi bi-people"></i>
+        <span>Follwoers:&nbsp;</span>
+        <span class="name">{{ info.followers }}</span>
+      </div>
+    </div>
+  </div>
+</div>

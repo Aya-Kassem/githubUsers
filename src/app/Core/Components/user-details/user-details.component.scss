@@ -1,0 +1,38 @@
+.userIfo {
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 15px;
+
+  .backBtn,
+  .link {
+    text-decoration: none;
+  }
+  .backBtn{
+    color: #17a26a;
+  }
+  img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+  }
+  .link {
+    color: #000;
+
+    &:hover {
+      color: #17a26a;
+      font-weight: 500;
+    }
+  }
+
+  .content {
+    div {
+      border: 1px solid #17a26a; //#dee2e6
+      border-radius: 15px;
+    }
+  }
+
+  i, .backBtn i {
+    color: #17a26a;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

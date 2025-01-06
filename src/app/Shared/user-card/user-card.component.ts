@@ -11,16 +11,16 @@ import { RouterModule, Router } from '@angular/router';
 export class UserCardComponent {
   userName = input<string>();
   userProgile = input<string>();
-  // company = input<string>();
-  userImage = input<string>();
-  userId =  input.required<number>();
-  // userFollowers = input<string>();
-  // userFollowing = input<string>();
+  // userLocation = input<string>();
+  userImage = input<string | null>();
+  name =  input.required<string>();
+  userFollowers = input<number>();
+  userFollowing = input<number>();
   defaultUserImg:string = 'default-profile.png';
   private router = inject(Router);
 
-  getUserDetails(id: number){
-    // this.router.navigate([''])
+  getUserDetails(){
+    this.router.navigate(['/userProfile', this.name()]);
   }
   
   navigateToUserProfile(clickEvent: Event){
