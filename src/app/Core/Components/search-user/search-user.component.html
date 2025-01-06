@@ -1,0 +1,12 @@
+<div class="row userInput d-flex justify-content-center">
+  <div class="col-8 d-flex justify-content-center align-items-center">
+    <input
+      name="user"
+      #githubUser
+      type="text"
+      class="flex-grow-1 px-3 py-1"
+      placeholder="Find User By Name or Email"
+      (input)="getUser(githubUser.value)"
+    />
+  </div>
+</div>

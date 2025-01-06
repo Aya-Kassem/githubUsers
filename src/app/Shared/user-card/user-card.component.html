@@ -1,0 +1,17 @@
+<div class="userInfo d-flex align-items-center gap-3" (click)="getUserDetails(userId()!)">
+    <div class="userImage ">
+        <img
+        [src]="userImage() ?? defaultUserImg"
+        alt="User Image"
+      />
+    </div>
+  
+
+  <div class="info d-flex align-items-center flex-grow-1 justify-content-between gap-4">
+    <span class="name">{{ userName() }}</span>
+    <a  target="_blank" (click)="navigateToUserProfile($event)" class="d-flex align-items-center justify-content-center">
+        <span>Profile</span>
+        <i class="bi bi-arrow-right-short"></i>
+    </a>
+  </div>
+</div>

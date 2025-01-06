@@ -11,5 +11,4 @@ import { Component } from '@angular/core';
 export class SpinnerComponent {
   userExist!: boolean;
   constructor() { }
-  
 }

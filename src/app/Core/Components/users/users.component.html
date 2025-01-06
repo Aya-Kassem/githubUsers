@@ -1,0 +1,19 @@
+<section class="mainContent container py-3">
+  <h4 class="text-center mb-4">Github Users</h4>
+  <app-search-user />
+
+  <div class="row users my-4">
+    @for(user of allUsers; track user.id){
+    <div class="col-12 col-sm-6 gap-3 mb-2">
+      <app-user-card
+        [userName]="user.login"
+        [userProgile]="user.html_url"
+        [userImage]="user.avatar_url"
+        [userId]="user.id"
+      />
+    </div>
+    }@empty {
+      <p>No Users</p>
+    }
+  </div>
+</section>
