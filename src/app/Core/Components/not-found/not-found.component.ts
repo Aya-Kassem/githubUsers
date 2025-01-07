@@ -12,6 +12,6 @@ export class NotFoundComponent {
   private router = inject(Router);
   constructor() {}
   backHome(){
-    this.router.navigate(['/githubUsers'])
+    this.router.navigate(['/AllUsers'])
   }
 }

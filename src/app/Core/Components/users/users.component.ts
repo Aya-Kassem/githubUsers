@@ -11,6 +11,7 @@ import { UserCardComponent } from '../../../Shared/user-card/user-card.component
 import { CommonModule } from '@angular/common';
 import { sortUsersAscending } from '../../../Shared/Store/sort/sort.action';
 import { PaginatorComponent } from '../paginator/paginator.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-users',
@@ -27,10 +28,14 @@ import { PaginatorComponent } from '../paginator/paginator.component';
 export class UsersComponent {
   private appStore = inject(Store<{ users: userSearhResponse }>);
   users: user[] = [];
-  ngOnInit() {
+  constructor(){
+    this.getAllUsers();
+  }
+
+  getAllUsers(){
     this.appStore.dispatch(getUsers());
     this.appStore.dispatch(sortUsersAscending());
-    this.appStore.select('users').subscribe((allUsers) => {
+    this.appStore.select('users').pipe(takeUntilDestroyed()).subscribe((allUsers) => {
         this.users = allUsers.items;
     });
   }

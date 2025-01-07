@@ -40,7 +40,7 @@ export class GithubIntegrationService {
           let message = errStatus(error);
           if(message) this.errService.errorMsg$.next(message);
           this.appStore.dispatch(getUsers());
-          this.router.navigate(['/githubUsers']);
+          this.router.navigate(['/AllUsers']);
           return of(null);
         })
       );
@@ -67,7 +67,7 @@ export class GithubIntegrationService {
           let message = errStatus(error);
           if(message) this.errService.errorMsg$.next(message);
           this.appStore.dispatch(getUsers());
-          this.router.navigate(['/githubUsers']);
+          this.router.navigate(['/AllUsers']);
           return of(null);
         })
       );

@@ -7,11 +7,11 @@ import { NotFoundComponent } from './Core/Components/not-found/not-found.compone
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'githubUsers',
+        redirectTo: 'AllUsers',
         pathMatch: 'full'
     },
     {
-        path: 'githubUsers',
+        path: 'AllUsers',
         component: UsersComponent
     },
     {
