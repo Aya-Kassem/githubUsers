@@ -1,10 +1,20 @@
 .mainContent{
-    height: 100vh;
     .header{
         i{
             font-size: 24px;
         }
     }
 
-   
+    .noUsers{
+        width: fit-content;
+        height: 200px;
+        box-shadow: 0 3px 6px #00000029;
+        border-radius: 15px;
+        p{
+            font-size: 25px;
+            color: #17a26a;
+            font-weight: 500;
+        }
+
+    }
 }

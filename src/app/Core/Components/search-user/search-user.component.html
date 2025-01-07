@@ -1,5 +1,7 @@
 <div class="row userInput d-flex justify-content-center align-items-center">
-  <div class="col-12 col-sm-8 d-flex justify-content-center align-items-center gap-2">
+  <div
+    class="col-12 col-sm-8 d-flex justify-content-center align-items-center gap-2"
+  >
     <input
       name="user"
       #githubUser
@@ -9,8 +11,17 @@
     />
     <button class="search" (click)="getUser(githubUser.value)">Search</button>
   </div>
-  <div class="operations col-12 col-sm-4 d-flex justify-content-sm-center align-items-center gap-3 mt-2 mt-sm-0">
-    <i class="bi " [ngClass]="{'bi-sort-up': sortDirection === 'Asc', 'bi-sort-down': sortDirection=== 'Desc'}" (click)="sortUsers()"></i>
+  <div
+    class="operations col-12 col-sm-4 d-flex justify-content-sm-center align-items-center gap-3 mt-2 mt-sm-0"
+  >
+    <i
+      class="bi"
+      [ngClass]="{
+        'bi-sort-up': sortDirection === 'Asc',
+        'bi-sort-down': sortDirection === 'Desc'
+      }"
+      (click)="sortUsers()"
+    ></i>
     <i class="bi bi-funnel"></i>
   </div>
 </div>

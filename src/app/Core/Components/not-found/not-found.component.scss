@@ -1,0 +1,36 @@
+.notFound {
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+
+    .btn {
+        background-color: #17a26aa8;
+        color: #fff;
+        padding: 6px 40px;
+    }
+
+    .notFoundParagraph {
+        font-size: 25px;
+        font-weight: bold;
+        color: #17a26aa8;
+        @media screen and (max-width: 426px){
+            font-size: 18px;
+        }
+    }
+
+    .err {
+        font-size: 200px;
+        color: #17a26aa8;
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 600;
+        font-style: italic;
+
+        @media screen and (max-width: 430px){
+            font-size: 120px;
+        }
+
+        @media screen and (min-width: 431px) and (max-width: 460px){
+            font-size: 180px;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Directive, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   sortUsersAscending,
@@ -7,7 +7,7 @@ import {
 } from '../../../Shared/Store/sort/sort.action';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { user } from '../users/interface/user-interface';
-import { onSearchUser, getUsers } from '../../../Shared/Store/users/users.actions/users.actions';
+import { onSearchUser, getUsers, getDefaultUsers } from '../../../Shared/Store/users/actions/users.actions';
 
 @Component({
   selector: 'app-search-user',
@@ -17,7 +17,7 @@ import { onSearchUser, getUsers } from '../../../Shared/Store/users/users.action
   styleUrl: './search-user.component.scss',
 })
 export class SearchUserComponent {
-  appStore = inject(Store<{ sorting: string; users: user[] }>);
+  appStore = inject(Store<{ sorting: string; users: user[], ChangeSpinnerVisability: boolean }>);
   sortDirection: string = 'Asc';
   constructor() {
     this.getSortDirection();
@@ -42,4 +42,5 @@ export class SearchUserComponent {
       ? this.appStore.dispatch(sortUsersDescending())
       : this.appStore.dispatch(sortUsersAscending());
   }
+
 }
