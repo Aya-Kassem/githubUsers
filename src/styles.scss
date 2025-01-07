@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.card{
+    border-width: 0px !important;
+}
+
+.p-paginator-page.p-paginator-page-selected {
+    background: #17a26aa8 !important;
+    color: #fff !important;
+}
+
+.p-select {
+    border: 1px solid #17a26aa8 !important;
+}
+.p-select-label {
+    padding: 5px !important;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #17a26aa8;
+    border-radius: 5px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Custom scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}

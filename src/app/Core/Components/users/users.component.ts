@@ -6,26 +6,29 @@ import { SearchUserComponent } from '../search-user/search-user.component';
 import { UserCardComponent } from '../../../Shared/user-card/user-card.component';
 import { CommonModule } from '@angular/common';
 import { sortUsersAscending } from '../../../Shared/Store/sort/sort.action';
+import { PaginatorComponent } from '../paginator/paginator.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [SearchUserComponent, UserCardComponent, CommonModule],
+  imports: [
+    SearchUserComponent,
+    UserCardComponent,
+    CommonModule,
+    PaginatorComponent,
+  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
   private appStore = inject(Store<{ users: user[] }>);
-   users: user[]=[];
+  users: user[] = [];
   ngOnInit() {
-    // this.appStore.dispatch(getUsers());
-    // this.appStore.dispatch(sortUsersAscending());
-    // this.appStore.select('users').subscribe((d) => {
-    //   console.log(d);
-      
-    //   this.users = d;
-    // })
-
+    this.appStore.dispatch(getUsers());
+    this.appStore.dispatch(sortUsersAscending());
+    this.appStore.select('users').subscribe((allUsers) => {
+      this.users = allUsers;
+    })
   }
 
   allUsers: userDetails[] = [
@@ -40,7 +43,7 @@ export class UsersComponent {
       bio: null,
       public_repos: 25,
       followers: 5,
-      following: 7
+      following: 7,
     },
     {
       login: 'bitemyapp',
@@ -53,7 +56,7 @@ export class UsersComponent {
       bio: '☦️',
       public_repos: 227,
       followers: 1036,
-      following: 830
+      following: 830,
     },
     {
       login: 'Super45coder',
@@ -66,7 +69,7 @@ export class UsersComponent {
       bio: null,
       public_repos: 44,
       followers: 415,
-      following: 1717
+      following: 1717,
     },
     {
       login: 'alsayadi',
@@ -79,7 +82,7 @@ export class UsersComponent {
       bio: null,
       public_repos: 40,
       followers: 93,
-      following: 15
+      following: 15,
     },
     {
       login: 'lesnitsky',
@@ -92,7 +95,7 @@ export class UsersComponent {
       bio: null,
       public_repos: 160,
       followers: 440,
-      following: 114
+      following: 114,
     },
     {
       login: 'NotHarshhaa',

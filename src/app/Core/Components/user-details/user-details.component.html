@@ -10,22 +10,22 @@
       class="header d-flex justify-content-start align-items-center gap-3 flex-column flex-sm-row"
     >
       <div class="d-flex flex-column">
-        <img [src]="info.avatar_url" alt="User Image" />
-        @if(info.bio){
+        <img [src]="userDetails().avatar_url" alt="User Image" />
+        @if(userDetails().bio){
         <div class="d-flex align-items-center gap-2 mt-2">
           <i class="bi bi-person-vcard"></i>
-          <span>{{ info.bio }}</span>
+          <span>{{ userDetails().bio }}</span>
         </div>
         }
       </div>
-      <div class="info d-flex flex-column">
+      <div class="userDetails() d-flex flex-column">
         <div class="d-flex align-items-center mb-3 gap-2">
           <i class="bi bi-person"></i>
-          <span class="name">{{ info.name }}</span>
+          <span class="name">{{ userDetails().name }}</span>
         </div>
         <div class="d-flex align-items-center gap-2">
           <i class="bi bi-github"></i>
-          <a [href]="info.html_url" target="_blank" class="link"
+          <a [href]="userDetails().html_url" target="_blank" class="link"
             >Visit Profile</a
           >
         </div>
@@ -38,13 +38,13 @@
       <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
         <i class="bi bi-buildings"></i>
         <span>Company:&nbsp;</span>
-        <span>{{ info.company }}</span>
+        <span>{{ userDetails().company }}</span>
       </div>
 
       <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
         <i class="bi bi-geo-alt"></i>
         <span>Location:&nbsp;</span>
-        <span class="name">{{ info.location }}</span>
+        <span class="name">{{ userDetails().location }}</span>
       </div>
 
       <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
@@ -63,19 +63,19 @@
           ></path>
         </svg>
         <span>Repositories Number:&nbsp;</span>
-        <span class="name">{{ info.public_repos }}</span>
+        <span class="name">{{ userDetails().public_repos }}</span>
       </div>
 
       <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
         <i class="bi bi-people"></i>
         <span>Follwoing:&nbsp;</span>
-        <span class="name">{{ info.following }}</span>
+        <span class="name">{{ userDetails().following }}</span>
       </div>
 
       <div class="col-12 d-flex align-items-center gap-2 my-2 my-sm-3 py-2">
         <i class="bi bi-people"></i>
         <span>Follwoers:&nbsp;</span>
-        <span class="name">{{ info.followers }}</span>
+        <span class="name">{{ userDetails().followers }}</span>
       </div>
     </div>
   </div>
