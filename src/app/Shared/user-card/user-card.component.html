@@ -7,12 +7,11 @@
     </div>
   
   <div class="info d-flex flex-column justify-content-center">
-    <span class="name mb-2">{{ userName() }}</span>
       <div class="followers mb-2">
-        followers: {{userFollowers()}}
+         {{ name() }}
       </div>
-      <div class="following mb-2">
-        following: {{userFollowing()}}
+      <div class="following profile mb-2" (click)="navigateToUserProfile($event)">
+         Github Profile
       </div>
   </div>
 </div>

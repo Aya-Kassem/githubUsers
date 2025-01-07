@@ -1,16 +1,16 @@
 <div class="row userInput d-flex justify-content-center align-items-center">
-  <div class="col-8 d-flex justify-content-center align-items-center">
+  <div class="col-12 col-sm-8 d-flex justify-content-center align-items-center gap-2">
     <input
       name="user"
       #githubUser
       type="text"
       class="px-3 py-1 w-100"
       placeholder="Find User By Name or Email"
-      (input)="getUser(githubUser.value)"
     />
+    <button class="search" (click)="getUser(githubUser.value)">Search</button>
   </div>
-  <div class="operations col-4 d-flex justify-content-center align-items-center gap-3">
-    <i class="bi bi-sort-up"></i>
+  <div class="operations col-12 col-sm-4 d-flex justify-content-sm-center align-items-center gap-3 mt-2 mt-sm-0">
+    <i class="bi " [ngClass]="{'bi-sort-up': sortDirection === 'Asc', 'bi-sort-down': sortDirection=== 'Desc'}" (click)="sortUsers()"></i>
     <i class="bi bi-funnel"></i>
   </div>
 </div>

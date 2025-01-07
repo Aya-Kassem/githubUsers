@@ -8,6 +8,8 @@ import { usersReducers } from './Shared/Store/users/users.reducers/users.reducer
 import { provideEffects } from '@ngrx/effects';
 import { UsersEffects } from './Shared/Store/users/users.effects/users-effects';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+// import { SortingUsersEffects } from './Shared/Store/sort/sort.effect';
+import { SortReducer } from './Shared/Store/sort/sort.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,7 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(),
     provideStore({
-      'users': usersReducers
+      'users': usersReducers,
+      'sorting': SortReducer
     }),
     provideEffects([
       UsersEffects
