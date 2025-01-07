@@ -16,6 +16,7 @@ import { provideEffects } from '@ngrx/effects';
 import { UsersEffects } from './Shared/Store/users/effects/users-effects';
 import {
   provideHttpClient,
+  withFetch,
 } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SortReducer } from './Shared/Store/sort/sort.reducer';
@@ -37,7 +38,7 @@ export const appConfig: ApplicationConfig = {
       ChangeSpinnerVisability: spinnerVisiabliltyReducer,
     }),
     provideEffects([UsersEffects]),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
