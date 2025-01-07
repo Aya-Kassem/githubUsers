@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
-import { user, userRequest } from '../users/interface/user-interface';
-import { getUsers, onPagenationChange } from '../../../Shared/Store/users/users.actions/users.actions';
+import { user, userRequest, userSearhResponse } from '../users/interface/user-interface';
+import { getUsers, onPagenationChange } from '../../../Shared/Store/users/actions/users.actions';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -15,9 +15,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class PaginatorComponent {
   first: number = 0;
   rows!: number;
-  appStore = inject(Store<{ searchUser: userRequest, users: user[] }>);
+  appStore = inject(Store<{ searchUser: userRequest, users: userSearhResponse}>);
+  usersCount!: number;
+
   constructor() {
     this.getUsersPagniation();
+    this.getUsersCount();
   }
 
   getUsersPagniation() {
@@ -26,6 +29,15 @@ export class PaginatorComponent {
       .pipe(takeUntilDestroyed())
       .subscribe((request) => {
         this.rows = request.items;
+      });
+  }
+
+  getUsersCount(){
+    this.appStore
+      .select('users')
+      .pipe(takeUntilDestroyed())
+      .subscribe((result) => {
+        this.usersCount = result.total_count;
       });
   }
 

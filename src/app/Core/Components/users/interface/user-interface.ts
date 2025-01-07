@@ -5,10 +5,9 @@ export interface user {
   html_url: string;
 }
 
-export interface userSearhResponse{
-  total_count: number,
-    "incomplete_results": boolean,
-    items: user[]
+export interface userSearhResponse {
+  total_count: number;
+  items: user[];
 }
 
 export interface userDetails {
@@ -26,7 +25,7 @@ export interface userDetails {
 }
 
 export interface userRequest {
-  query: string,
-  pageNumber: number,
-  items: number
+  query: string;
+  pageNumber: number;
+  items: number;
 }

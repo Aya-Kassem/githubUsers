@@ -1,4 +1,8 @@
-<section class="mainContent d-flex flex-column container py-3">
+<section
+  class="mainContent d-flex flex-column container py-3 h-100"
+  [class.align-items-center]="!users.length"
+  [class.justify-content-center]="!users.length"
+>
   <!-- HEADER -->
   <div
     class="d-flex align-items-center justify-content-center mb-4 header gap-3"
@@ -8,7 +12,9 @@
   </div>
 
   <!-- USER SEARCH COMPONENT -->
+  @if(users.length){
   <app-search-user />
+  }
 
   <!-- USER SEARCH RESULTS -->
   <div class="row users my-4">
@@ -21,12 +27,19 @@
       />
     </div>
     }@empty {
-    <p>No Users</p>
+    <div
+      class="px-3 d-flex flex-column justify-content-center align-items-center noUsers"
+    >
+      <p>Something Went Wrong While Catching Github Users!</p>
+      <p>Please Try again Later</p>
+    </div>
     }
   </div>
 
   <!-- PAGINATOR -->
+  @if(users.length){
   <div class="mt-auto">
-    <app-paginator/>
+    <app-paginator />
   </div>
+  }
 </section>

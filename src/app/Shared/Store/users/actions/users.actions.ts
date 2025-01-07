@@ -1,23 +1,27 @@
 import { createAction, props } from '@ngrx/store';
-import { user } from '../../../../Core/Components/users/interface/user-interface';
+import { user, userSearhResponse } from '../../../../Core/Components/users/interface/user-interface';
 
 export const getUsers = createAction('[Users Page] get All Users');
 
 export const setUsers = createAction(
   '[Users Page] set All Users',
-  props<{ users: user[] }>()
+  props<userSearhResponse>()
 );
 
 export const getDefaultUsers = createAction(
-    '[Main Page] No Users'
+    '[Users Page] No Users'
 )
 
 export const onSearchUser = createAction(
-  '[Main Page] Search User',
+  '[Users Page] Search User',
   props<{ name: string }>()
 )
 
 export const onPagenationChange = createAction(
-  '[Main Page] Page Selected',
+  '[Users Page] Page Selected',
   props<{ page: number, count: number }>()
+)
+
+export const getDefaultPagination = createAction(
+  '[Users Page] Default Pagination Params'
 )

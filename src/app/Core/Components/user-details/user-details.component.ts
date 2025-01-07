@@ -12,18 +12,4 @@ import { RouterModule } from '@angular/router';
 })
 export class UserDetailsComponent {
   userDetails = input.required<userDetails>();
-
-  info: userDetails = {
-    login: 'Aya-Kassem',
-    id: 90005145,
-    avatar_url: 'https://avatars.githubusercontent.com/u/90005145?v=4',
-    html_url: 'https://github.com/Aya-Kassem',
-    name: 'Aya Kassem',
-    company: 'T-Tech',
-    location: 'Giza',
-    bio: 'Angular Developer',
-    public_repos: 25,
-    followers: 5,
-    following: 7
-  };
 }
